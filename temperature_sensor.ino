@@ -6,14 +6,19 @@
 const int outputPin = A0;  // Pin attached to LM35 output
 
 unsigned int output = 0;  // Output voltage of LM35
+float temp = 0.0;
 
 void setup()
 {
-  // Nothing to setup 
+  Serial.begin(9600);
+  Serial.print("Temperature reported every 2 seconds in degrees Celsius");
+  Serial.println();  
 }
 
 void loop()
 {
-    output = analogRead(outputPin);
-    delay(2000);  // Wait for 2 seconds
+  output = analogRead(outputPin);
+  temp = (output * 0.0048828125 * 100);  //5/1024=0.0048828125;1000/10=100
+  Serial.println(temp);
+  delay(2000);  // Wait for 2 seconds
 }

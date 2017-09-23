@@ -18,7 +18,7 @@ void setup()
 void loop()
 {
   output = analogRead(outputPin);
-  temp = (output * 0.0048828125 * 100);  //5/1024=0.0048828125;1000/10=100
+  temp = (output * 0.0048828125 * 100);  // 5/1024=0.0048828125;1000/10=100
   Serial.println(temp);
   delay(2000);  // Wait for 2 seconds
 }
